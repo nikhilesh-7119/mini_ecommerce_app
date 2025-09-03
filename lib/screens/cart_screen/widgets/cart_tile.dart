@@ -76,4 +76,5 @@ class CartTile extends GetView<CartController> {
       ),
     );
   }
+  
 }
