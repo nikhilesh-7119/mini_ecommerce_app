@@ -37,7 +37,7 @@ jobs:
           cp build/app/outputs/flutter-apk/app-release.apk build/output/Mini_ecommerce_app.apk
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Mini_ecommerce_app
           path: build/output/Mini_ecommerce_app.apk
