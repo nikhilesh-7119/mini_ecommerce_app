@@ -28,7 +28,10 @@ class ProductTile extends StatelessWidget {
                 flex: 6,
                 child: GestureDetector(
                   behavior: HitTestBehavior.opaque,
-                  onTap: () => Get.to(() => const ProductDetailScreen(), arguments: product),
+                  onTap: () => Get.to(
+                    () => const ProductDetailScreen(),
+                    arguments: product,
+                  ),
                   child: AspectRatio(
                     aspectRatio: 1,
                     child: CachedNetworkImage(
@@ -36,7 +39,8 @@ class ProductTile extends StatelessWidget {
                       fit: BoxFit.contain,
                       placeholder: (context, url) =>
                           const Center(child: CircularProgressIndicator()),
-                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
                   ),
                 ),
@@ -45,7 +49,10 @@ class ProductTile extends StatelessWidget {
               // Make title + price/rating tappable to detail
               GestureDetector(
                 behavior: HitTestBehavior.opaque,
-                onTap: () => Get.to(() => const ProductDetailScreen(), arguments: product),
+                onTap: () => Get.to(
+                  () => const ProductDetailScreen(),
+                  arguments: product,
+                ),
                 child: Column(
                   children: [
                     // Title (2 lines)
@@ -56,7 +63,6 @@ class ProductTile extends StatelessWidget {
                       style: theme.textTheme.titleMedium,
                     ),
                     const SizedBox(height: 6),
-                    // Price left, Rating right
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -66,7 +72,11 @@ class ProductTile extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            const Icon(Icons.star, size: 16, color: Colors.amber),
+                            const Icon(
+                              Icons.star,
+                              size: 16,
+                              color: Colors.amber,
+                            ),
                             const SizedBox(width: 4),
                             Text(product.rating.rate.toStringAsFixed(1)),
                             const SizedBox(width: 4),
@@ -82,7 +92,7 @@ class ProductTile extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              // Centered small button: Add or Added(+1)
+              // Centered small button: Add or Added(add +1 quantity and store in db)
               Align(
                 alignment: Alignment.center,
                 child: FilledButton(
@@ -90,7 +100,7 @@ class ProductTile extends StatelessWidget {
                     if (!isInCart) {
                       cart.addProduct(product);
                     } else {
-                      // cart.increment(product.id); // cap handled in controller (max 10)
+                      // cart.increment(product.id); // cap handled in controller (max 10 can change)
                     }
                   },
                   child: Text(isInCart ? 'Added' : 'Add to cart'),

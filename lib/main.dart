@@ -13,6 +13,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
 
+  // opening two hive boxes for data
   if (!Hive.isBoxOpen('productsBox')) {
     await Hive.openBox('productsBox');
   }

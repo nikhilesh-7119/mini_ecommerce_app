@@ -9,10 +9,7 @@ class CartScreen extends GetView<CartController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Cart'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Cart'), centerTitle: true),
       body: const CartBody(),
       bottomNavigationBar: const CartSummaryBar(),
     );
@@ -32,6 +29,7 @@ class CartBody extends GetView<CartController> {
   }
 }
 
+//if cart is empty
 class _EmptyCart extends StatelessWidget {
   const _EmptyCart();
 
@@ -41,15 +39,13 @@ class _EmptyCart extends StatelessWidget {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(24.0),
-        child: Text(
-          'Your cart is empty',
-          style: theme.textTheme.titleMedium,
-        ),
+        child: Text('Your cart is empty', style: theme.textTheme.titleMedium),
       ),
     );
   }
 }
 
+//bottom navigation bar to show the total value of  cart
 class CartSummaryBar extends GetView<CartController> {
   const CartSummaryBar({super.key});
   @override
@@ -65,9 +61,16 @@ class CartSummaryBar extends GetView<CartController> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('Items: ${controller.itemCount}', style: theme.textTheme.bodyLarge),
-            Text('Total: \$${controller.total.toStringAsFixed(2)}',
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
+            Text(
+              'Items: ${controller.itemCount}',
+              style: theme.textTheme.bodyLarge,
+            ),
+            Text(
+              'Total: \$${controller.total.toStringAsFixed(2)}',
+              style: theme.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
           ],
         ),
       );

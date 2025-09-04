@@ -3,6 +3,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mini_ecommerce_app/models/cart_item.dart';
 import 'package:mini_ecommerce_app/models/product.dart';
 
+//controller to deals with the logic of the cart screen and load the items
+//in the cart screen
 class CartController extends GetxController {
   static const _boxName = 'cartBox';
   static const _keyItems = 'items';
@@ -41,17 +43,19 @@ class CartController extends GetxController {
   void addProduct(Product p) {
     final idx = items.indexWhere((e) => e.id == p.id);
     if (idx == -1) {
-      items.add(CartItem(
-        id: p.id,
-        title: p.title,
-        price: p.price,
-        image: p.image,
-        description: p.description,
-        category: p.category,
-        rate: p.rating.rate,
-        count: p.rating.count,
-        quantity: 1,
-      ));
+      items.add(
+        CartItem(
+          id: p.id,
+          title: p.title,
+          price: p.price,
+          image: p.image,
+          description: p.description,
+          category: p.category,
+          rate: p.rating.rate,
+          count: p.rating.count,
+          quantity: 1,
+        ),
+      );
     } else {
       increment(p.id);
       return;

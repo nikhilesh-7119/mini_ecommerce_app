@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+//to show the full description of the product
 class DetailDescription extends StatelessWidget {
   final String description;
   const DetailDescription({required this.description});
@@ -8,10 +8,6 @@ class DetailDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Text(
-      description,
-      softWrap: true,
-      style: theme.textTheme.bodyMedium,
-    );
+    return Text(description, softWrap: true, style: theme.textTheme.bodyMedium);
   }
 }

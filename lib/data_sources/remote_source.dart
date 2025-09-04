@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/product.dart';
 
+//class to check for the internet if we can fetch from api or not
+//if yes show the data from api
+//else extract data from the hive
 class NoCacheException implements Exception {
   final String message;
   NoCacheException(this.message);
@@ -20,7 +23,9 @@ class RemoteSource {
     final res = await http.get(uri);
     if (res.statusCode == 200) {
       final List<dynamic> jsonList = json.decode(res.body) as List<dynamic>;
-      return jsonList.map((e) => Product.fromJson(e as Map<String, dynamic>)).toList();
+      return jsonList
+          .map((e) => Product.fromJson(e as Map<String, dynamic>))
+          .toList();
     } else {
       throw Exception('HTTP ${res.statusCode}');
     }
@@ -29,7 +34,9 @@ class RemoteSource {
   // 2) Save to Hive (replace old)
   Future<void> saveProductsHive(List<Product> items) async {
     final box = Hive.box(_boxName);
-    final List<Map<String, dynamic>> serialized = items.map((e) => e.toJson()).toList();
+    final List<Map<String, dynamic>> serialized = items
+        .map((e) => e.toJson())
+        .toList();
     await box.put(_keyProducts, serialized);
   }
 
@@ -39,6 +46,8 @@ class RemoteSource {
     final data = box.get(_keyProducts);
     if (data == null) throw NoCacheException('No cached data');
     final List list = data as List;
-    return list.map((e) => Product.fromJson(Map<String, dynamic>.from(e as Map))).toList();
+    return list
+        .map((e) => Product.fromJson(Map<String, dynamic>.from(e as Map)))
+        .toList();
   }
 }

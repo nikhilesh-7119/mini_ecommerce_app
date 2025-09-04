@@ -1,7 +1,7 @@
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
+//to show the big image as well as using cached network image
 class DetailImage extends StatelessWidget {
   final String imageUrl;
   final double height;

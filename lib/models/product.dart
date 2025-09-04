@@ -1,5 +1,6 @@
 import 'package:mini_ecommerce_app/models/rating.dart';
 
+//model to store the product details
 class Product {
   final int id;
   final String title;
@@ -9,7 +10,7 @@ class Product {
   final String image;
   final Rating rating;
 
-  Product( {
+  Product({
     required this.id,
     required this.title,
     required this.price,
@@ -20,22 +21,22 @@ class Product {
   });
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-        id: (json['id'] as num).toInt(),
-        title: (json['title'] as String?)?.trim() ?? '',
-        description: (json['description'] as String?)?.trim() ?? '',
-        category: (json['category'] as String?)?.trim() ?? '',
-        price: (json['price'] as num).toDouble(),
-        image: (json['image'] as String?) ?? '',
-        rating: Rating.fromJson(json['rating'] as Map<String, dynamic>? ?? {}),
-      );
+    id: (json['id'] as num).toInt(),
+    title: (json['title'] as String?)?.trim() ?? '',
+    description: (json['description'] as String?)?.trim() ?? '',
+    category: (json['category'] as String?)?.trim() ?? '',
+    price: (json['price'] as num).toDouble(),
+    image: (json['image'] as String?) ?? '',
+    rating: Rating.fromJson(json['rating'] as Map<String, dynamic>? ?? {}),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'description': description,
-        'category': category,
-        'price': price,
-        'image': image,
-        'rating': rating.toJson(),
-      };
+    'id': id,
+    'title': title,
+    'description': description,
+    'category': category,
+    'price': price,
+    'image': image,
+    'rating': rating.toJson(),
+  };
 }

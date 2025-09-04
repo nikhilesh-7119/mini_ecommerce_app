@@ -23,11 +23,12 @@ class HomeScaffold extends GetView<HomeController> {
         ],
       ),
       body: const HomeBody(),
+      //to go to the cart page
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Get.to(CartScreen());
         },
-        child: Icon(Icons.shopping_cart,size: 32,),
+        child: Icon(Icons.shopping_cart, size: 32),
       ),
     );
   }

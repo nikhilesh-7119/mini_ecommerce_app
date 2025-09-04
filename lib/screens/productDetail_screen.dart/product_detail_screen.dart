@@ -7,6 +7,7 @@ import 'package:mini_ecommerce_app/screens/productDetail_screen.dart/widgets/det
 import 'package:mini_ecommerce_app/screens/productDetail_screen.dart/widgets/price_rating_row.dart';
 import 'package:mini_ecommerce_app/controller/cart_controller.dart';
 
+//screen to show the details of the product when item tile is tapped
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
 

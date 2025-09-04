@@ -2,6 +2,7 @@ import 'package:mini_ecommerce_app/data_sources/remote_source.dart';
 
 import '../models/product.dart';
 
+//logic to check if data is in the hive or not
 class ProductRepository {
   final RemoteSource remoteSource;
   ProductRepository({required this.remoteSource});

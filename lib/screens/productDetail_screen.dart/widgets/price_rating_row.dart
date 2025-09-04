@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 
+//showing price and rating in one row
 class PriceRatingRow extends StatelessWidget {
   final double price;
   final double rate;
@@ -17,7 +17,10 @@ class PriceRatingRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text('\$${price.toStringAsFixed(2)}', style: theme.textTheme.headlineSmall),
+        Text(
+          '\$${price.toStringAsFixed(2)}',
+          style: theme.textTheme.headlineSmall,
+        ),
         Row(
           children: [
             const Icon(Icons.star, size: 18, color: Colors.amber),

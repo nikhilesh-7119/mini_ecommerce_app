@@ -9,7 +9,12 @@ class ProductGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width;
-    final crossAxisCount = width < 600 ? 2 : width < 900 ? 3 : 4;
+    //creating responsive ui
+    final crossAxisCount = width < 600
+        ? 2
+        : width < 900
+        ? 3
+        : 4;
 
     return GridView.builder(
       padding: const EdgeInsets.all(12),

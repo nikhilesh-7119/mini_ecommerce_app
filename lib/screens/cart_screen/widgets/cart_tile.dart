@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:mini_ecommerce_app/controller/cart_controller.dart';
 import 'package:mini_ecommerce_app/models/cart_item.dart';
 
+//how each item in the cart page looks
 class CartTile extends GetView<CartController> {
   final CartItem item;
   const CartTile({super.key, required this.item});
@@ -37,8 +38,10 @@ class CartTile extends GetView<CartController> {
               style: theme.textTheme.titleMedium,
             ),
             const SizedBox(height: 6),
-            Text('\$${item.price.toStringAsFixed(2)}',
-                style: theme.textTheme.labelLarge),
+            Text(
+              '\$${item.price.toStringAsFixed(2)}',
+              style: theme.textTheme.labelLarge,
+            ),
             const Spacer(),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
@@ -48,14 +51,13 @@ class CartTile extends GetView<CartController> {
                   // Plus on left
                   IconButton(
                     tooltip: 'Increase',
-                    onPressed: item.quantity >= 10 ? null : () => controller.increment(item.id),
+                    onPressed: item.quantity >= 10
+                        ? null
+                        : () => controller.increment(item.id),
                     icon: const Icon(Icons.add_circle),
                   ),
                   // Quantity in middle
-                  Text(
-                    '${item.quantity}',
-                    style: theme.textTheme.titleMedium,
-                  ),
+                  Text('${item.quantity}', style: theme.textTheme.titleMedium),
                   // Minus on right
                   IconButton(
                     tooltip: 'Decrease',
@@ -76,5 +78,4 @@ class CartTile extends GetView<CartController> {
       ),
     );
   }
-  
 }
