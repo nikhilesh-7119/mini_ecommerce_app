@@ -1,5 +1,5 @@
 # Mini E-commerce App (Flutter) 
-A simple e-commerce demo built with Flutter using the MVC pattern, GetX for state/navigation, Hive for local storage (cart), and a minimal CI/CD pipeline that builds a release APK and publishes it to GitHub Releases.
+A simple e-commerce demo built with Flutter using the MVC pattern, GetX for state/navigation, Hive for local storage (cart), and a minimal CI/CD pipeline that builds a release APK and it can be downloaded from the actions.
 
 # Demo Video Link:
 <https://drive.google.com/file/d/1p4ctWyZ_z5yNBCZcI1s31_wlF2Zno_l8/view?usp=drive_link>
